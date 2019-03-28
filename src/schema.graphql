@@ -1,0 +1,17 @@
+type Query {
+    getAllUser: [User]!
+    getUser(id: Int!): User!
+    getUserMessage(userId: Int!): [Message]!
+}
+
+type Mutation {
+    addUser(name: String!, email: String!): User!
+    sendMessage(from: Int!, to: Int!, text: String!): Message!
+    makeFriend(from: Int!, to: Int!): String!
+}
+
+type Subscription {
+    userAdded: User!
+    messageSent: Message!
+    friendMade: String!
+}

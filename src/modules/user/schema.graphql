@@ -1,0 +1,13 @@
+type User {
+    email: String
+    friends: [Int]
+    id: Int!
+    name: String
+}
+
+type Message {
+    from: Int
+    id: Int!
+    text: String
+    to: Int
+}
