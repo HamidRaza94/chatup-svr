@@ -1,0 +1,36 @@
+scalar Date
+
+type User {
+  id: ID
+  name: String
+  email: String
+  friends: [ID]
+}
+
+type Me {
+  id: ID
+  name: String
+  email: String
+}
+
+type Message {
+  id: ID
+  from: ID
+  to: ID
+  message: String
+  createdAt: String
+}
+
+type UserWithMessages {
+  id: ID
+  name: String
+  email: String
+  conversations: [Message]
+}
+
+type UserWithLastMessage {
+  id: ID
+  name: String
+  email: String
+  lastMessage: String
+}

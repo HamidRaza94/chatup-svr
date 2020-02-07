@@ -1,0 +1,31 @@
+type Mutation {
+  addUser(token: String!, name: String!, email: String!, password: String!): User
+  sendMessage(to: ID!, message: String!, createdAt: Date): Message
+  makeFriend(from: ID!, to: ID!): String
+  login(email: String!, password: String!): String
+}
+
+type Query {
+  Date: Date
+  getAllUsers: [User]
+  checkUser(email: String!, password: String!): Boolean
+  getUserById(id: ID!): User
+
+  me: Me
+  getFriends: [Me]
+  getMessages(to: ID!): [Message]
+
+  getFriendListWithMessages: [UserWithMessages]
+  getFriendListWithLastMessage: [UserWithLastMessage]
+
+  getMessageById(id: ID!): Message
+  getMessagesByUserId(id: ID!): [Message]
+  getMessagesByUserEmail(email: String!): [Message]
+  getAllMessages: [Message]
+}
+
+type Subscription {
+  userAdded: User
+  messageSent: Message
+  friendMade: String
+}

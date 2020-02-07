@@ -1,33 +1,41 @@
 {
-  "name": "chat-app-apollo-server",
+  "name": "chat-svr",
   "version": "1.0.0",
-  "description": "Chatting App",
-  "main": "index.js",
+  "description": "Chat Server",
+  "main": "build/index.js",
   "scripts": {
-    "clean:build": "rm -rf build/*",
-    "lint": "npx tslint --fix -c tslint.json -p tsconfig.json --exclude 'node_modules/**/*.{j,t}s'",
-    "nodemon": "nodemon ./build",
-    "start": "npm run clean:build && tsc-watch --project . --onSuccess \"npm run nodemon\"",
+    "start": "nodemon",
+    "startup": "node ./build/server.js",
+    "lint": "eslint src --ext js",
+    "lint:fix": "eslint src --ext js --fix",
+    "prebuild": "rm -rf build",
+    "build": "babel src -d build --copy-files",
     "test": "jest"
   },
   "author": "Mohammad Hamid Raza",
   "license": "ISC",
   "dependencies": {
-    "apollo-server": "^2.4.8",
-    "apollo-server-express": "^2.4.8",
-    "dotenv": "^7.0.0",
-    "express": "^4.16.4",
-    "file-system": "^2.2.2",
-    "glob": "^7.1.3",
-    "graphql": "^14.2.0",
-    "typescript": "^3.3.4000"
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/register": "^7.7.7",
+    "apollo-server": "^2.9.15",
+    "apollo-server-express": "^2.9.15",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "glob": "^7.1.6",
+    "graphql-scalars": "^1.0.6",
+    "http-status": "^1.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "path": "^0.12.7",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
-    "@types/dotenv": "^6.1.0",
-    "@types/glob": "^7.1.1",
-    "@types/graphql": "^14.0.7",
-    "nodemon": "^1.18.10",
-    "tsc-watch": "^2.1.2",
-    "tslint": "^5.14.0"
+    "nodemon": "^2.0.2"
   }
 }
